@@ -1,0 +1,38 @@
+AWS Lambda is a serverless compute service that lets you run code without managing servers.
+You just upload your code, and AWS Lambda automatically runs it when needed — scaling up and down as required.
+
+How It Works:
+You write code (called a Lambda function) in languages like Python, Node.js, Java, Go, or C#.
+You define an event that triggers it — like an API call, file upload, or CloudWatch event.
+Lambda executes your code on demand — for as long as needed (usually milliseconds to seconds).
+You pay only for the compute time used, not for idle server time.
+
+Type of AWS Service:
+AWS Lambda is a Compute Service under the Serverless category.
+It belongs to the Function-as-a-Service (FaaS) model in cloud computing.
+
+
+Problems Lambda Solves:
+| Problem                                                              | Traditional Approach                | Lambda Solution                                          |
+| -------------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------- |
+| Need to run small tasks or automation scripts                        | Set up & manage EC2 servers         | Just write a small Lambda function — no server setup     |
+| App needs to scale automatically                                     | Manually handle auto-scaling groups | Lambda scales **automatically** based on incoming events |
+| Idle resources wasting money                                         | Pay for 24/7 servers                | Pay **only when code runs**                              |
+| Respond to real-time events (e.g., file uploads, logs, API requests) | Build event listener servers        | Lambda can be **event-driven**, reacting instantly       |
+| Maintenance overhead (OS patches, capacity planning)                 | Admin overhead on EC2               | AWS handles all the infrastructure                       |
+
+Example Use Cases:
+S3 Event Processing: Run code automatically when a file is uploaded to S3 (e.g., resize an image).
+API Backend: Combine with API Gateway to build a full backend without servers.
+Automation: Clean up unused resources daily via CloudWatch Events + Lambda.
+Data Processing: Trigger Lambda from Kinesis or DynamoDB Streams for real-time data analysis.
+CI/CD tasks: Automate deployment or monitoring scripts.
+
+Cost Benefit:
+Free tier: 1 million requests per month + 400,000 GB-seconds of compute time.
+Billing: Based on number of requests and execution duration.
+No charge when idle.
+
+In Short:
+AWS Lambda = Run your code automatically without managing servers, only pay for what you use.
+It simplifies deployment, scaling, and cost management — making it ideal for modern, event-driven applications.
