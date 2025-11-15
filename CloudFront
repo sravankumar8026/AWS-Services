@@ -1,0 +1,50 @@
+🌐 What is CloudFront?
+Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS.
+Its main purpose is to deliver content (websites, images, videos, APIs, files) to users faster by distributing it across multiple servers worldwide.
+
+Instead of users loading data from a single server (like an S3 bucket or EC2 in one region), CloudFront serves content from the nearest AWS edge location.
+
+⭐ Why do we use CloudFront? (Advantages)
+1️⃣ Improves Performance (Low Latency & High Speed)
+CloudFront stores cached copies of your content in edge locations around the world.
+So users get data from the nearest location → faster load times.
+
+2️⃣ Reduces Load on Your Origin Server
+Since CloudFront caches content:
+Your S3 bucket
+EC2 server
+Application load balancer
+don’t get hit too frequently → better performance and lower cost.
+
+3️⃣ Enhances Security
+CloudFront integrates with:
+AWS WAF (firewall)
+AWS Shield (DDoS protection)
+Origin Access Control (OAC) for restricting S3 bucket access
+providing a secure delivery channel.
+
+4️⃣ Cost Savings
+CloudFront reduces:
+Data transfer from your origin (S3/EC2)
+Server CPU usage
+S3 + CloudFront is cheaper than directly serving content from S3.
+
+5️⃣ Global Availability
+
+CloudFront has hundreds of edge locations worldwide.
+Your app becomes globally accessible with consistent performance.
+
+6️⃣ Supports Dynamic + Static Content
+CloudFront can cache:
+Static files (HTML, CSS, JS, images, videos)
+Dynamic content from APIs or websites
+
+7️⃣ HTTPS/SSL by Default
+CloudFront provides free HTTPS using AWS Certificate Manager (ACM).
+You can serve secure content without additional cost.
+
+🧭 Simple Real Example
+If a user from USA accesses your S3-hosted website (origin in Mumbai):
+Without CloudFront → Request travels to Mumbai (slow)
+
+With CloudFront → Request hits nearest US edge location → Fast
