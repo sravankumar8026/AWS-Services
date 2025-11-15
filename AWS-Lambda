@@ -36,3 +36,8 @@ No charge when idle.
 In Short:
 AWS Lambda = Run your code automatically without managing servers, only pay for what you use.
 It simplifies deployment, scaling, and cost management — making it ideal for modern, event-driven applications.
+
+✔️ Summary — Your Statement (Corrected & Clear)
+
+Yes, using AWS Lambda you can write scripts (mostly in Python using Boto3) to identify and delete unused EC2 instances, EBS volumes, and snapshots.
+Lambda helps with cost optimization by automating cleanup of idle resources.
