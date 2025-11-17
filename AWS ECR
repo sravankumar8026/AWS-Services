@@ -1,0 +1,84 @@
+📘 Amazon ECR – Theory for Easy Revision
+1. What is Amazon ECR?
+Amazon Elastic Container Registry (ECR) is a fully managed container image registry provided by AWS.
+It is used to store, manage, and retrieve Docker/OCI container images securely.
+
+2. Why do we use ECR?
+ECR is used mainly because it is:
+Secure – integrated with IAM
+Private by default
+Highly reliable & scalable
+Fully managed
+Integrated with AWS services like ECS, EKS, Lambda
+It acts as a central storage location for container images used in deployments.
+
+3. Key Features of ECR
+✔ Private Image Storage
+All repositories are private unless you make them public.
+✔ IAM-Based Access Control
+You decide who can:
+Push images
+Pull images
+Access repositories
+✔ Seamless Integration
+Works directly with:
+Amazon ECS
+Amazon EKs
+AWS Fargate
+AWS Lambda containers
+CodeBuild / CodePipeline
+✔ Image Vulnerability Scanning
+ECR can automatically scan images for:
+Malware
+Vulnerabilities (CVEs)
+Security risks
+✔ Lifecycle Policies
+You can automatically delete:
+Old images
+Unused tags
+Older versions
+This reduces cost and keeps the registry clean.
+✔ Encryption
+
+Images are encrypted:
+At rest using KMS
+In transit using TLS
+✔ Replication Across Regions
+You can replicate images across multiple AWS regions for:
+Faster deployments
+Disaster recovery
+Multi-region architectures
+
+4. How ECR Works (Simple Flow)
+Create a repository
+Login to ECR (authentication using AWS CLI)
+Build Docker image locally
+Tag the image with ECR URI
+Push the image to ECR
+Deployment services (ECS/EKS/Lambda) pull the image during launch
+This is the same in real-time projects, only automated through CI/CD.
+
+5. ECR Repository Types
+✔ Private Repositories
+Default. Access controlled using IAM.
+✔ Public Repositories
+Used for open-source projects.
+Similar to Docker Hub.
+
+6. Real-Time Usage
+ECR is used in DevOps pipelines to:
+Build the application into a Docker image
+Push that image into ECR
+Deploy using ECS/EKS/Fargate
+CI/CD tools (Jenkins, GitHub Actions, GitLab CI) automatically authenticate and push images to ECR.
+
+7. Benefits of ECR
+No infrastructure to manage
+Highly available and scalable
+Secure access using IAM
+Fast image retrieval for ECS/EKS
+Built-in security scanning
+Cost-effective and pay-per-use
+
+8. Simple One-Line Definition
+ECR is AWS’s private, secure, and managed Docker image storage service used to store container images for application deployment.
