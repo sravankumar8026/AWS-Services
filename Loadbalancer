@@ -1,0 +1,150 @@
+Here is a clear, deep, interview-ready explanation of Application Load Balancer (ALB) and Network Load Balancer (NLB) with use cases, features, diagrams, and differences.
+
+✅ Application Load Balancer (ALB)
+
+Layer: L7 (Application Layer – HTTP/HTTPS/WebSocket)
+
+The Application Load Balancer is used for web applications, microservices, and modern architectures.
+It understands HTTP and HTTPS protocols, so it can inspect the request content and make intelligent routing decisions.
+
+🔹 Key Features of ALB
+1️⃣ Path-based Routing
+
+Route traffic based on URL paths:
+
+/login → Auth Service
+
+/products → Product Service
+
+/cart → Cart Service
+
+2️⃣ Host-based Routing
+
+Route based on domains:
+
+api.example.com → API servers
+
+admin.example.com → Admin application
+
+3️⃣ Microservices Support
+
+Each microservice runs on separate EC2/containers but ALB handles routing.
+
+4️⃣ HTTPS/SSL Termination
+
+ALB can decrypt HTTPS traffic using ACM certificates.
+
+5️⃣ WebSockets Support
+6️⃣ Sticky Sessions (Session Affinity)
+
+ALB can send a user to the same instance during the session.
+
+7️⃣ Health Checks
+
+Checks /health path of web apps.
+
+🔥 When to Use ALB
+
+Web applications (HTTP/HTTPS)
+
+Microservices architecture
+
+Path-based or host-based routing
+
+When you want to offload SSL/TLS certificates
+
+Dynamic routing based on URL or headers
+
+Integration with ECS/EKS services
+
+📘 Simple ALB Example
+User → ALB → EC2-1 (Web Service)
+            → EC2-2 (API Service)
+            → EC2-3 (Auth Service)
+
+✅ Network Load Balancer (NLB)
+
+Layer: L4 (Transport Layer – TCP/UDP/TLS)
+
+The Network Load Balancer is designed for high-performance, ultra-low latency, and millions of requests per second.
+
+It does not understand HTTP.
+It only forwards traffic based on IP and port.
+
+🔹 Key Features of NLB
+1️⃣ Handles Millions of Requests/Second
+
+Extremely high throughput.
+
+2️⃣ Ultra-Low Latency
+
+Latency is usually under 1 millisecond.
+
+3️⃣ TCP/UDP Protocol Support
+
+Used for real-time applications.
+
+4️⃣ Static IP Support
+
+You can assign:
+
+Fixed static IP
+
+Elastic IPs
+
+One static IP per AZ
+
+Great for on-premise integrations.
+
+5️⃣ TLS Pass-through
+
+TLS certificates stay on backend servers.
+
+6️⃣ Preserves Client Source IP
+
+Backend servers can see real client IP.
+
+7️⃣ Very High Performance Health Checks
+🔥 When to Use NLB
+
+Highly scalable applications
+
+Real-time streaming
+
+Gaming servers
+
+Database traffic
+
+Financial transaction systems
+
+Applications needing static IP or EIP
+
+Low latency TCP/UDP traffic
+
+📘 Simple NLB Example
+User → NLB → EC2-1 (TCP app)
+            → EC2-2 (Database proxy)
+            → EC2-3 (Real-time system)
+
+🆚 ALB vs NLB – Quick Comparison
+Feature	ALB	NLB
+Layer	Layer 7	Layer 4
+Protocol	HTTP/HTTPS/WSS	TCP/UDP/TLS
+Routing	Path/Host-based	IP+Port
+Performance	Good	Highest (millions of req/sec)
+Latency	Milliseconds	Sub-millisecond
+Static IP	No	Yes
+SSL Termination	Yes	No (passes through)
+Use case	Web apps, microservices	Real-time, high performance
+Client IP Visibility	Via X-Forwarded-For header	Native
+🧠 Real-Time Use Cases in Your DevOps Interviews
+Application Load Balancer (ALB) Example
+
+“In my microservice project, we used an Application Load Balancer to route traffic based on paths.
+/auth requests were routed to the Auth service, /products to Product service.
+ALB also handled SSL termination and health checks.”
+
+Network Load Balancer (NLB) Example
+
+“For high-performance internal communication between services, we used an NLB.
+It gave us fixed IP addresses, very low latency, and supported TCP-based applications.”
