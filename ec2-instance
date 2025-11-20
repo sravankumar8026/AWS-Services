@@ -1,0 +1,51 @@
+AWS EC2 Instance:
+
+“In real-time DevOps, EC2 is used for hosting apps, Jenkins servers, container hosts, Kubernetes nodes, and bastion servers.
+I handle provisioning, securing, CI/CD deployments, monitoring, and troubleshooting. 
+Common issues I resolve include SSH failures, instance health issues, disk full errors, application crashes, ALB health failures, and high resource usage. 
+I use CloudWatch, SSM, system logs, and networking tools to diagnose problems quickly.”
+
+“In real-time projects, EC2 forms the backbone of application hosting, Jenkins CI/CD, Kubernetes nodes, bastion access, and monitoring/logging infrastructure.
+As a DevOps engineer, I secure, configure, deploy, monitor, and troubleshoot these EC2 instances regularly.”
+
+what is ec2 instance?
+An EC2 instance is a virtual server in the cloud provided by Amazon Web Services (AWS) that you can use to run applications. 
+It functions like a physical computer, allowing you to choose the operating system, CPU, memory, and storage you need, and you only pay for what you use. 
+This provides scalability (Elastic Compute Cloud) to adjust resources as needed. 
+
+types of ec2 instance?
+An AWS instance type is a choice of virtual machine that determines the CPU, memory, storage, and networking capacity available for your application. 
+AWS provides a wide variety of instance types, which are grouped into categories like General Purpose, Compute Optimized, Memory Optimized, and Storage Optimized,
+to help you match your specific workload needs to the right mix of resources. 
+
+What an instance type determines
+CPU: The processing power for your instance.
+Memory: The amount of RAM available to your instance.
+Storage: The type and amount of storage, such as EBS (Elastic Block Store) or local NVMe SSDs, is available to your instance.
+Networking: The network and disk subsystem capacity, including network bandwidth, is allocated to your instance. 
+
+what type of instance family you used in your project?
+ we use R-Family , because our 3-tier application largely deals with database if you configure any type of R 
+ R-series (Memory Optimized) – Best for most databases
+Examples: R6g, R6i, R7g, R7i
+Why?
+Databases like MySQL/PostgreSQL/Oracle/MongoDB run best when most working data fits in memory.
+High RAM → faster read queries.
+Good balance of CPU + memory.
+Use if:
+You have high read/write load
+Large DB cache
+In-memory operations are important
+✅ Most commonly used in real-time projects
+
+what type of instance you used spot instance,reserved instance,dedicated host,saving plans,capacity reservation?
+ in our project every time as per our reuirements we can create a new instance directly from create instance.
+ but i have idea about all these types every type have they own advantage of saveing time,cost and etc ...
+
+ what is AMI?
+ “An AMI is a pre-configured template that contains the operating system, application software, and configuration required to launch an EC2 instance. 
+ It acts as a blueprint for creating identical servers and is commonly used for scaling and automation.”
+
+what is EBS?
+“EBS (Elastic Block Store) is durable, block-level storage for EC2 instances. It acts as a virtual hard disk where we store the OS, logs, database files, and application data. 
+EBS volumes are persistent, can be backed up using Snapshots, and come in multiple types like gp3 and io2 depending on IOPS and throughput requirements.”
